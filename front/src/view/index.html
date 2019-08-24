@@ -19,10 +19,11 @@
     sock.addEventListener("message", e => {
       console.log(e.data, is_play === false);
       if (e.data === "play" && is_play === false) {
+        console.log("starting");
         is_play = true;
         togglePlay();
       } else if (e.data === "stop") {
-        console.log("きてる？");
+        console.log("stop");
         is_play = false;
         stop();
       }

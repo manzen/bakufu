@@ -11,6 +11,5 @@ function togglePlay() {
 }
 function stop(){
   audio.pause();
-  audio.currentTime = 0;
 }
 
