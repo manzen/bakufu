@@ -1,6 +1,6 @@
 const audio = new Audio();
 let isPlay = true;
-audio.src = "../../resources/sigeru.mp3";
+audio.src = "../../resources/runner.mp3";
 function togglePlay() {
   if (isPlay) {
     audio.play();
