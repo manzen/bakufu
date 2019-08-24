@@ -3,29 +3,36 @@ const board = new five.Board();
 
 const THRESHOLD = 200;
 
-module.exports = () => {
-    return new Promise(resolve => {
-        board.on("ready", () => {
-            const led = new five.Led(13);
+module.exports = (callback) => {
+    board.on("ready", () => {
+        let canStamp = true;
 
-            led.strobe();
+        const led = new five.Led(13);
+        led.strobe();
 
-            const left = new five.Sensor("A0");
-            const right = new five.Sensor("A1");
+        const left = new five.Sensor("A0");
+        const right = new five.Sensor("A1");
 
-            left.on('change', (value) => {
-                if(value < THRESHOLD) {
-                    console.log(`Left: HIT`);
-                }
-            });
-
-            right.on('change', (value) => {
-                if(value < THRESHOLD) {
-                    console.log(`Right: HIT`);
-                }
-            });
-
-            resolve();
+        left.on('change', (value) => {
+            if(value < THRESHOLD) {
+                if(!canStamp) return;
+                console.log(`Left: HIT`);
+                callback()
+                canStamp = false;
+            } else {
+                canStamp = true;
+            }
         });
-    })
+
+        right.on('change', (value) => {
+            if(value < THRESHOLD) {
+                if(!canStamp) return;
+                console.log(`Right: HIT`);
+                callback()
+                canStamp = false;
+            } else {
+                canStamp = true;
+            }
+        });
+    });
 }
