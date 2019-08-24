@@ -8,15 +8,34 @@
 </head>
 
 <body>
-  <div id="pagebody">
+  <script>
+    const sock = new WebSocket("ws://127.0.0.1:5001");
+    let is_play = false;
 
-    <!-- ヘッダ -->
-    <div id="header">
-      <h1>シンガーソングランナー</h1>
-      <button onclick="hello()">say hello</button>
-      <button onclick="togglePlay()">toggle</button>
-      <button onclick="stop()">stop</button>
-    </div>
-  </div>
+    sock.addEventListener("open", e => {
+      console.log("接続が開かれたときに呼び出されるイベント", e.data);
+    });
+
+    sock.addEventListener("message", e => {
+      console.log(e.data, is_play === false);
+      if (e.data === "play" && is_play === false) {
+        is_play = true;
+        togglePlay();
+      } else if (e.data === "stop") {
+        console.log("きてる？");
+        is_play = false;
+        stop();
+      }
+      console.log("サーバーからメッセージを受信したときに呼び出されるイベント", e.data);
+    });
+
+    sock.addEventListener("close", e => {
+      console.log("接続が閉じられたときに呼び出されるイベント", e.data);
+    });
+
+    sock.addEventListener("error", e => {
+      console.log("エラーが発生したときに呼び出されるイベント", e.data);
+    });
+  </script>
 </body>
 </html>

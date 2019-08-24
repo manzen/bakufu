@@ -1,7 +1,3 @@
-function hello () {
-  alert("Hello");
-};
-
 const audio = new Audio();
 let isPlay = true;
 audio.src = "../../resources/sigeru.mp3";
