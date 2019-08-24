@@ -13,29 +13,27 @@
     let is_play = false;
 
     sock.addEventListener("open", e => {
-      console.log("接続が開かれたときに呼び出されるイベント", e.data);
+      console.log("disconnect", e.data);
     });
 
     sock.addEventListener("message", e => {
       console.log(e.data, is_play === false);
       if (e.data === "play" && is_play === false) {
-        console.log("starting");
         is_play = true;
         play();
       } else if (e.data === "stop") {
-        console.log("stop");
         is_play = false;
         stop();
       }
-      console.log("サーバーからメッセージを受信したときに呼び出されるイベント", e.data);
+      console.log("receive", e.data);
     });
 
     sock.addEventListener("close", e => {
-      console.log("接続が閉じられたときに呼び出されるイベント", e.data);
+      console.log("kill", e.data);
     });
 
     sock.addEventListener("error", e => {
-      console.log("エラーが発生したときに呼び出されるイベント", e.data);
+      console.log("error", e.data);
     });
   </script>
 </body>
