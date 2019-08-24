@@ -5,17 +5,17 @@ const s = new server({port: 5001});
 let timerId = null;
 
 s.on("connection", ws => {
-    device(() => {
+    device.init(() => {
     	if(timerId) {
     		clearTimeout(timerId);
 		    timerId = null;
 	    }
 
 	    ws.send("play");
-	    console.log('hoge');
 
 	    timerId = setTimeout(() => {
 		    ws.send("stop")
+			device.reset()
 	    }, 1000);
     })
 });
