@@ -6,9 +6,17 @@
   <script type="text/javascript" src="music.js"></script>
   <title>シンガーソングランナー</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="level.css">
 </head>
 
 <body>
+  <div class="difficulty">
+    <p class="title">難易度選択</p>
+    <div class="flex">
+      <div class="normal selector">普通</div>
+      <div class="hard selector">鬼</div>
+    </div>
+  </div>
   <div class="bg-image">
     <div class="main-content" onclick="autoscroll()">
       <div class="content-runner">
@@ -36,6 +44,7 @@
       </div>
     </div>
   </div>
+  <script src="difficluty.js"></script>
   <script src="scroll.js"></script>
   <script src="client.js"></script>
 </body>
