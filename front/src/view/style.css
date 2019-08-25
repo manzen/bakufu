@@ -16,11 +16,28 @@ body {
     margin: auto;
     font-size: 80px;
     font-weight: bold;
+    min-height: 100vh;
 }
 
 .content-body {
    margin: 0;
-   padding-top: 80px; 
+   padding-top: 80px;
 }
 
+.content-ultrasoul .content-body {
+    padding-top: 0;
+}
 
+.content-ultrasoul {
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    padding-top: 0;
+
+}
