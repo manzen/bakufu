@@ -5,7 +5,7 @@ const s = new server({port: 5001});
 let timerId = null;
 /* 普通が500 */
 /* 難しいが250 */
-const delay = 500;
+let delay = 500;
 
 const setupWS = () => {
 	return new Promise((resolve) => {
@@ -15,9 +15,20 @@ const setupWS = () => {
 	})
 };
 
+const getDifficlty = (ws) => {
+	return new Promise((resolve) => {
+		ws.on("message", message => {
+			console.log(message);
+			delay = message === 'hard' ? 500 : 250;
+			resolve()
+		});
+	})
+}
+
 (async () => {
 	const ws = await setupWS()
 
+	await getDifficlty(ws)
 	device.init(() => {
 		if(timerId) {
 			clearTimeout(timerId);
