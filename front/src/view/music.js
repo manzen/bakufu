@@ -1,5 +1,5 @@
 const audio = new Audio();
-audio.src = "../../resources/runner.mp3";
+audio.src = "../../resources/ultra_soul.mp3";
 function play() {
   audio.play();
 }
