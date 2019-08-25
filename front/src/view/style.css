@@ -3,7 +3,7 @@ body {
 }
 
 .bg-image {
-    background-image: url("../../resources/road.png");
+    background-image: url("../../resources/road.jpeg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
