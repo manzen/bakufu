@@ -3,7 +3,9 @@ const device = require('./device');
 const s = new server({port: 5001});
 
 let timerId = null;
-const delay = 1000;
+/* 普通が500 */
+/* 難しいが250 */
+const delay = 500;
 
 const setupWS = () => {
 	return new Promise((resolve) => {
