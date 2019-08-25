@@ -95,7 +95,7 @@ function scrollSpeed() {
     autoscroll();
 }
 
-function autoscroll() {
+function autoscroll(speed=35) {
     if (flag == false) {
         timerID = setInterval("scroll()", speed);
         flag = true;
