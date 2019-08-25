@@ -19,7 +19,7 @@ const getDifficlty = (ws) => {
 	return new Promise((resolve) => {
 		ws.on("message", message => {
 			console.log(message);
-			delay = message === 'hard' ? 500 : 250;
+			delay = message == 'hard' ? 250 : 500;
 			resolve()
 		});
 	})
