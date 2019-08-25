@@ -9,7 +9,11 @@ sock.addEventListener("message", e => {
 	console.log(e.data, is_play === false);
 	if (e.data === "play" && is_play === false) {
 		is_play = true;
-		play();
+		if(window.difficluty === 'hard') {
+			play(2.0);
+		} else {
+			play();
+		}
 		autoscroll();
 
 	} else if (e.data === "stop") {

@@ -1,6 +1,7 @@
 const audio = new Audio();
-audio.src = "../../resources/runner.mp3";
-function play() {
+audio.src = "../../resources/ultra_soul.mp3";
+function play(scale = 1.0) {
+  audio.playbackRate = scale
   audio.play();
 }
 function stop(){
