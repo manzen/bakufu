@@ -1,12 +1,12 @@
 const five = require("johnny-five");
-const board = new five.Board();
-
 const THRESHOLD = 200;
 
+let board = null;
 let canStamp = true;
 
 module.exports = {
 	init: (callback) => {
+		board = new five.Board();
 		board.on("ready", () => {
 
 			const led = new five.Led(13);

@@ -3,19 +3,30 @@ const device = require('./device');
 const s = new server({port: 5001});
 
 let timerId = null;
+const delay = 1000;
 
-s.on("connection", ws => {
-    device.init(() => {
-    	if(timerId) {
-    		clearTimeout(timerId);
-		    timerId = null;
-	    }
+const setupWS = () => {
+	return new Promise((resolve) => {
+		s.on("connection", ws => {
+			resolve(ws)
+		});
+	})
+};
 
-	    ws.send("play");
+(async () => {
+	const ws = await setupWS()
 
-	    timerId = setTimeout(() => {
-		    ws.send("stop")
-			device.reset()
-	    }, 1000);
-    })
-});
+	device.init(() => {
+		if(timerId) {
+			clearTimeout(timerId);
+			timerId = null;
+		}
+
+		ws.send("play");
+
+		timerId = setTimeout(() => {
+			ws.send("stop");
+			device.reset();
+		}, delay);
+	});
+})();
