@@ -13,7 +13,7 @@ function stop() {
 	audio.pause();
 }
 
-audio.addEventListener('end', () => {
+audio.addEventListener('ended', () => {
 	window.scrollTo(0, 0)
 })
 
