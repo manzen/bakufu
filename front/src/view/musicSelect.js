@@ -18,6 +18,6 @@ $ultraSoulBtn.addEventListener('click', () => {
 });
 
 $runnerShortBtn.addEventListener('click', () => {
-	window.audioSrc = "../../resources/runner￿_short.mp3";
+	window.audioSrc = "../../resources/runner_short.mp3";
 	$musicSelect.style.display = 'none'
 });
