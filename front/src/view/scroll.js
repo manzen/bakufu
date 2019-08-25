@@ -1,6 +1,6 @@
 let timerID;
 let flag = false;
-let speed = 55;
+let speed = 20;
 
 function scroll() {
     window.scrollBy(0, 1);
