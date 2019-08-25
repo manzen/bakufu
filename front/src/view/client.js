@@ -10,9 +10,12 @@ sock.addEventListener("message", e => {
 	if (e.data === "play" && is_play === false) {
 		is_play = true;
 		play();
+		autoscroll();
+
 	} else if (e.data === "stop") {
 		is_play = false;
 		stop();
+		autoscroll();
 	}
 	console.log("receive", e.data);
 });
