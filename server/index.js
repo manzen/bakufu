@@ -31,4 +31,8 @@ const setupWS = () => {
 			device.reset();
 		}, delay);
 	});
+
+	ws.on('close',() => {
+		console.log('I lost a client');
+	});
 })();
