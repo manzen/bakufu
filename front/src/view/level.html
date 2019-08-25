@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="music.js"></script>
+    <title>シンガーソングランナー</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .difficulty {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 54px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .selector {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            font-size: 32px;
+            text-align: center;
+            line-height: 200px;
+            box-shadow: 0 1px 2px #aaa;
+        }
+
+        .normal {
+            background-color: #fffaf0;
+            color: black;
+        }
+
+        .hard {
+            background-color: #dc143c;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="difficulty">
+    <p class="title">難易度選択</p>
+    <div class="flex">
+        <div class="normal selector">普通</div>
+        <div class="hard selector">鬼</div>
+    </div>
+</div>
+</body>
+</html>
